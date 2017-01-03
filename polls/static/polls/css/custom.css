@@ -1,0 +1,26 @@
+footer{
+  padding: 0px !important;
+    padding-bottom: 20px !important;
+    padding-top: 20px !important;
+    background-color: #245269;
+
+}
+
+.text-muted{
+    color: #000;
+}
+
+.block{
+    margin-bottom: 25px !important;
+    color:dodgerblue !important;
+    font-size: 18px !important;
+}
+
+
+.blockery{
+    padding: 50px;
+    border: 2px solid black;}
+            .block{
+    padding: 10px;
+    border: 1px solid grey;
+}
