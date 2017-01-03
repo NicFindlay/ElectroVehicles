@@ -4,16 +4,9 @@ from .models import Cart, Service, Location
 
 def index(request):
 
-    location_list = Location.objects.order_by('-location_name')
-    cart_list = Cart.objects.order_by('-cartLocation')
+    location_list = Location.objects.all()
+    cart_list = Cart.objects.all()
     service_list = Service.objects.all()
-
-    # cart_service = [[]]
-    # for cart in cart_list:
-    #
-    #     for i in service_list:
-    #         if i.cart == cart:
-
 
 
     context = {'location_list': location_list,
