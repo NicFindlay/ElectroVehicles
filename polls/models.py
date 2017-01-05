@@ -8,8 +8,8 @@ class Location(models.Model):
         return self.location_name
 
 class Cart(models.Model):
-    cart_id = models.IntegerField(blank=True, default=1)
-    serial_number = models.IntegerField(null=True)
+    cart_id = models.CharField(max_length=10, null=True)
+    serial_number = models.CharField(max_length=10, null=True)
     department = models.CharField(max_length=200, null=True)
     cartLocation = models.ForeignKey(Location, blank=True, default=1)
     running_hours = models.IntegerField(blank=True, null=True)
