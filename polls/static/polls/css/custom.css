@@ -24,3 +24,7 @@ footer{
     padding: 10px;
     border: 1px solid grey;
 }
+
+td, th{
+    padding: 10px !important;
+}

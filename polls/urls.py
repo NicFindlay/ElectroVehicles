@@ -9,9 +9,9 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^(?P<location_id>[0-9]+)/$', views.location, name='location'),
-    url(r'^(?P<location_id>[0-9]+)/(?P<cart_id>[A-Z0-9]+)/$', views.cart, name='cart'),
-    url(r'^(?P<location_id>[0-9]+)/(?P<cart_id>[A-Z0-9]+)/history/$', views.history, name='history'),
-    url(r'^(?P<location_id>[0-9]+)/(?P<cart_id>[A-Z0-9]+)/(?P<service_id>[0-9]+)/$', views.service, name='service'),
+    url(r'^(?P<location_id>[0-9]+)/(?P<cart_id>[A-Za-z0-9]+)/$', views.cart, name='cart'),
+    url(r'^(?P<location_id>[0-9]+)/(?P<cart_id>[A-Za-z0-9]+)/history/$', views.history, name='history'),
+    url(r'^(?P<location_id>[0-9]+)/(?P<cart_id>[A-Za-z0-9]+)/(?P<service_id>[0-9]+)/$', views.service, name='service'),
 
 ]
 
