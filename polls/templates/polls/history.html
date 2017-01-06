@@ -54,53 +54,33 @@
 
 
                     </tr>
-                    <tr>
-                        <td>{{ cart_obj.cart_id }}</td>
 
-                        {% for service in service_array %}
-                           <td>{{ service.date_in }}</td>
-                        {% endfor %}
 
                     {% for service in service_array %}
-                       <td>{{ service.date_out }}</td>
+                        <tr>
+                            <td>{{ cart_obj.cart_id }}</td>
+                            <td>{{ service.date_in }}</td>
+                            <td>{{ service.date_out }}</td>
+                            <td>{{ service.technician }}</td>
+
+                            {% if service_obj.serviced %}
+                                    <td>Serviced</td>
+                            {% endif %}
+                            {% if service_obj.breakdown %}
+                                 <td>Breakdown</td>
+                             {% endif %}
+                            {% if service_obj.accident %}
+                                <td>Accident</td>
+                            {% endif %}
+
+                            <td>{{ service.battery_percentage }}</td>
+                            <td>{{ service.problem }}</td>
+                            <td>{{ service.repaired_replaced }}</td>
+                            <td>{{ service.concerns }}</td>
+                            <td>{{ service.parts_ordered }}</td>
+
+                        </tr>
                     {% endfor %}
-
-                    {% for service in service_array %}
-                       <td>{{ service.technician }}</td>
-                    {% endfor %}
-
-                    {% if service_obj.serviced %}
-                        <td>Serviced</td>
-                    {% endif %}
-                    {% if service_obj.breakdown %}
-                         <td>Breakdown</td>
-                    {% endif %}
-                    {% if service_obj.accident %}
-                         <td>Accident</td>
-                    {% endif %}
-
-                    {% for service in service_array %}
-                       <td>{{ service.battery_percentage }}</td>
-                    {% endfor %}
-
-                    {% for service in service_array %}
-                       <td>{{ service.problem }}</td>
-                    {% endfor %}
-
-                    {% for service in service_array %}
-                       <td>{{ service.repaired_replaced }}</td>
-                    {% endfor %}
-
-                    {% for service in service_array %}
-                       <td>{{ service.concerns }}</td>
-                    {% endfor %}
-
-                    {% for service in service_array %}
-                       <td>{{ service.parts_ordered }}</td>
-                    {% endfor %}
-
-                    </tr>
-
 
 
 
