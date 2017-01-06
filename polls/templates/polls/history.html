@@ -38,20 +38,20 @@
         <div class="container">
             <div class="row">
 
-                    <h1>Cart: {{cart_id}}</h1>
-                <h4>Serial Number: {{cart_obj.serial_number}}</h4>
-                <h4>Location: {{cart_location}}</h4>
-                <h4>Department: {{cart_obj.department}}</h4>
 
-                <a href="/{{ location_id }}/{{ cart_id }}/history/">History</a>
-                <h4>Services:</h4> {% if services %}
-                <ul> {% for service in services %} <li>
-                    <a href="/{{ location_id }}/{{ cart_id }}/{{ service.id }}/">{{ service.date_in }}</a>
-                </li>
-                    {% endfor %}
-                </ul> {% else %}
-                <p>No services have been done.</p>
-                {% endif %}
+
+{#                    <h1>Cart: {{cart_id}}</h1>#}
+{#                <h4>Serial Number: {{cart_obj.serial_number}}</h4>#}
+{#                <h4>Location: {{cart_location}}</h4>#}
+{#                <h4>Department: {{cart_obj.department}}</h4>#}
+{#                <h4>Services:</h4> {% if services %}#}
+{#                <ul> {% for service in services %} <li>#}
+{#                    <a href="/{{ location_id }}/{{ cart_id }}/{{ service.id }}/">{{ service.date_in }}</a>#}
+{#                </li>#}
+{#                    {% endfor %}#}
+{#                </ul> {% else %}#}
+{#                <p>No services have been done.</p>#}
+{#                {% endif %}#}
 
 {#                {% if cart_obj.cart_pic_one %}#}
 {#                    <h4>Picture 1: <br><img src="{{cart_obj.cart_pic_one.url}}"><br></h4>#}

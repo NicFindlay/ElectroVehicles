@@ -58,6 +58,27 @@ def cart(request, location_id, cart_id):
 
     return render(request, 'polls/cart.html', context)
 
+def history( request, location_id, cart_id):
+    cart_array = Cart.objects.order_by('-cartLocation')
+    cart_location = ''
+    cart_obj = ''
+
+    for cart in cart_array:
+        if str(cart.cart_id) == str(cart_id):
+            cart_location = cart.cartLocation
+            cart_obj = cart
+
+    service_obj = Service.objects.order_by('-date_in')
+    service_array = []
+
+    for service in service_obj:
+        if str(service.cart) == str(cart_id):
+            service_array.append(service)
+
+    context = {'service_array' : service_array,
+               'cart_obj' : cart_obj}
+
+    return render(request, 'polls/history.html', context)
 
 def service(request, location_id, cart_id,service_id):
 
