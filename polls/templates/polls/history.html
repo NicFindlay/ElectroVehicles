@@ -59,25 +59,59 @@
                     {% for service in service_array %}
                         <tr>
                             <td>{{ cart_obj.cart_id }}</td>
+
                             <td>{{ service.date_in }}</td>
                             <td>{{ service.date_out }}</td>
-                            <td>{{ service.technician }}</td>
+                            {% if service.technician %}
+                                <td>{{ service.technician }}</td>
+                                 {% else %}
+                                <td></td>
+                            {% endif %}
 
-                            {% if service_obj.serviced %}
+
+                            {% if service_obj.serviced == True %}
                                     <td>Serviced</td>
                             {% endif %}
-                            {% if service_obj.breakdown %}
+
+                            {% if service_obj.breakdown == true %}
                                  <td>Breakdown</td>
                              {% endif %}
-                            {% if service_obj.accident %}
+                            {% if service_obj.accident == True %}
                                 <td>Accident</td>
                             {% endif %}
 
-                            <td>{{ service.battery_percentage }}</td>
-                            <td>{{ service.problem }}</td>
-                            <td>{{ service.repaired_replaced }}</td>
-                            <td>{{ service.concerns }}</td>
-                            <td>{{ service.parts_ordered }}</td>
+                            {% if service.battery_percentage %}
+                                <td>{{ service.battery_percentage }}</td>
+                                 {% else %}
+                                <td></td>
+                            {% endif %}
+
+                            {% if service.problem %}
+                                <td>{{ service.problem }}</td>
+                                 {% else %}
+                                <td></td>
+                            {% endif %}
+
+
+                            {% if service.repaired_replaced %}
+                                <td>{{ service.repaired_replaced }}</td>
+                                 {% else %}
+                                <td></td>
+                            {% endif %}
+
+
+                            {% if service.concerns %}
+                                <td>{{ service.concerns }}</td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+
+                            {% if service.parts_ordered %}
+                                <td>{{ service.parts_ordered }}</td>
+                                 {% else %}
+                                <td></td>
+                            {% endif %}
+
 
                         </tr>
                     {% endfor %}
