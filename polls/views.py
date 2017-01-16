@@ -5,15 +5,12 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 
-@login_required(login_url='/home')
-def index(request):
 
+def index(request):
     location_list = Location.objects.all()
     cart_list = Cart.objects.all()
     service_list = Service.objects.all()
     user_flag = False
-
-
 
     # Login functionality
     if ('username' in request.POST) and request.POST['username'].strip():
@@ -35,6 +32,7 @@ def index(request):
 
     return render(request, 'polls/index.html', context)
 
+@login_required(login_url='/')
 def home(request):
 
     location_list = Location.objects.all()
