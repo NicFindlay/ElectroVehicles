@@ -1,8 +1,41 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Cart, Service, Location
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
 
+@login_required(login_url='/home')
 def index(request):
+
+    location_list = Location.objects.all()
+    cart_list = Cart.objects.all()
+    service_list = Service.objects.all()
+    user_flag = False
+
+
+
+    # Login functionality
+    if ('username' in request.POST) and request.POST['username'].strip():
+        username = request.POST['username']
+        if ('password' in request.POST) and request.POST['password'].strip():
+            password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect("/home", request.path)
+
+
+
+    context = {'location_list': location_list,
+               'cart_list' : cart_list,
+               'service_list' : service_list,
+               'user_flag' : user_flag}
+
+
+    return render(request, 'polls/index.html', context)
+
+def home(request):
 
     location_list = Location.objects.all()
     cart_list = Cart.objects.all()
@@ -13,7 +46,7 @@ def index(request):
                'cart_list' : cart_list,
                'service_list' : service_list}
 
-    return render(request, 'polls/index.html', context)
+    return render(request, 'polls/home.html', context)
 
 def location(request, location_id):
 
