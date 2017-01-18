@@ -22,13 +22,10 @@ def index(request):
                 login(request, user)
                 return redirect("/home", request.path)
 
-
-
     context = {'location_list': location_list,
                'cart_list' : cart_list,
                'service_list' : service_list,
                'user_flag' : user_flag}
-
 
     return render(request, 'polls/index.html', context)
 
@@ -62,6 +59,37 @@ def location(request, location_id):
                'cart_list' : cart_list }
 
     return render(request, 'polls/location.html', context)
+
+def stats(request, location_id):
+
+    current_location = ''
+    cart_array = Cart.objects.all()
+    cart_list = []
+    service_obj = Service.objects.all()
+    service_array = []
+
+
+    for i in cart_array:
+        if str(i.cartLocation.id) == str(location_id):
+            current_location = i.cartLocation
+            cart_list.append(i)
+
+    cart_length = len(cart_list)
+
+    for service in service_obj:
+        if str(service.cart) in str(cart_list):
+            service_array.append(service)
+
+    service_length = len(service_array)
+
+    context = {'location_id': location_id,
+               'current_location': current_location,
+               'cart_list': cart_list,
+               'cart_length' : cart_length,
+               'service_array' : service_array,
+               'service_length' : service_length}
+
+    return render(request, 'polls/stats.html', context)
 
 def cart(request, location_id, cart_id):
     cart_array = Cart.objects.order_by('-cartLocation')

@@ -11,6 +11,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
 
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+<header id="top" class="header">
+  <div class="login">
+	<img src={%  static '/polls/img/logo.png' %}>
+                        <form name="login" action="" method="post" accept-charset="utf-8">
+                            {% csrf_token %}
+                          <ul>
+                            <input id="username" type="username" name="username" placeholder="Username" required></li>
+                            <input id="password" type="password" name="password" placeholder="Password" required></li>
+                             <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+                          </ul>
+                        </form>
+                    </section>
+</div>
+</header>
+    <script src="js/index.js"></script>
+
+</body>
+
       <style>
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
       @import url(http://fonts.googleapis.com/css?family=Open+Sans);
@@ -72,27 +97,4 @@ input {
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
 
     </style>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-
-</head>
-
-<body>
-<header id="top" class="header">
-  <div class="login">
-	<img src={%  static '/polls/img/logo.png' %}>
-                        <form name="login" action="" method="post" accept-charset="utf-8">
-                            {% csrf_token %}
-                          <ul>
-                            <input id="username" type="username" name="username" placeholder="Username" required></li>
-                            <input id="password" type="password" name="password" placeholder="Password" required></li>
-                             <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
-                          </ul>
-                        </form>
-                    </section>
-</div>
-</header>
-    <script src="js/index.js"></script>
-
-</body>
 </html>
