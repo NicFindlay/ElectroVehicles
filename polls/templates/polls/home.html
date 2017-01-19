@@ -66,22 +66,14 @@
     <section id="about" class="about">
         <div class="container">
             <div class="row">
-                    <h1 style="text-align: center">(BETA) Monthly Services<br><br> </h1>
-                    {% for cart in cart_list %}
+                    <h1 style="text-align: center">Need Servicing: ( > 25days ago)<br><br> </h1>
 
-                        <p>{{ cart.cart_id }}</p>
+                        {% for service in overdue_service %}
 
-                        {% for service in service_list %}
-
-                            {% if service.cart == cart %}
-
-                                <a href="/{{ service.cart.cartLocation.id }}/{{ service.cart.cart_id }}/{{ service.id }}/"> {{ service.date_in}} <br></a>
-
-
-                            {% endif %}
+                                <a href="/{{ service.cart.cartLocation.id }}/{{ service.cart.cart_id }}/{{ service.id }}/"> {{ service.cart}} - {{ service.date_in }} <br></a>
 
                         {% endfor %}
-                        {% endfor %}
+
 
             </div>
             <!-- /.row -->
@@ -110,6 +102,17 @@
         <!-- /.container -->
     </section>
 
+
+     <section id="services" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h1>Electrovehicles Seychelles</h1>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
     <!-- Footer -->
     <footer>

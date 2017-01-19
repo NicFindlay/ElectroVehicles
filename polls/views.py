@@ -4,6 +4,7 @@ from .models import Cart, Service, Location
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
+import datetime
 
 
 def index(request):
@@ -35,11 +36,27 @@ def home(request):
     location_list = Location.objects.all()
     cart_list = Cart.objects.all()
     service_list = Service.objects.all()
+    monthly_service = []
+    today = datetime.date.today()
+    month_ago = datetime.date.today() + datetime.timedelta(-25)
+
+    overdue_service = []
+
+
+    for service in service_list:
+        if (service.date_out.month == today.month):
+            monthly_service.append(service)
+
+    for service in monthly_service:
+        if (service.date_out < month_ago):
+            overdue_service.append(service)
 
 
     context = {'location_list': location_list,
                'cart_list' : cart_list,
-               'service_list' : service_list}
+               'service_list' : service_list,
+               'monthly_service' : monthly_service,
+               'overdue_service' : overdue_service}
 
     return render(request, 'polls/home.html', context)
 
