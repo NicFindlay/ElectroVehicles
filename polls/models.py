@@ -25,6 +25,9 @@ class Service(models.Model):
     technician = models.TextField(blank=True)
     date_in = models.DateField(blank=True, null=True)
     date_out = models.DateField(blank=True, null=True)
+    battery = models.CharField(max_length=4, null=True)
+    tyres = models.CharField(max_length=4, null=True)
+    upholstery = models.CharField(max_length=4, null=True)
     serviced = models.BooleanField(blank=False, null=False, default=False)
     breakdown = models.BooleanField(blank=False, null=False, default=False)
     accident = models.BooleanField(blank=False, null=False, default=False)
@@ -34,11 +37,18 @@ class Service(models.Model):
     concerns = models.TextField(blank=True)
     parts_ordered = models.TextField(blank=True)
 
-
-
     def __unicode__(self):
         return str(self.cart.cart_id)
 
+class Spares(models.Model):
+    part_number = models.TextField(blank=True)
+    part_name = models.TextField(blank=True)
+    part_description = models.TextField(blank=True)
+    cart_used = models.ForeignKey(Cart, blank=True, default=None)
+
+
+    def __str__(self):
+        return str(self.part_number + " : " + self.part_name)
 
 
 

@@ -108,6 +108,71 @@ def stats(request, location_id):
 
     return render(request, 'polls/stats.html', context)
 
+def spares(request, location_id):
+
+    current_location = ''
+    cart_array = Cart.objects.all()
+    cart_list = []
+    service_obj = Service.objects.all()
+    service_array = []
+
+
+    for i in cart_array:
+        if str(i.cartLocation.id) == str(location_id):
+            current_location = i.cartLocation
+            cart_list.append(i)
+
+
+    context = {'location_id': location_id,
+               'current_location': current_location,
+               'cart_list': cart_list}
+
+    return render(request, 'polls/spares.html', context)
+
+def batteries(request, location_id):
+
+    current_location = ''
+    cart_array = Cart.objects.all()
+    cart_list = []
+    service_obj = Service.objects.all()
+    service_array = []
+
+
+    for i in cart_array:
+        if str(i.cartLocation.id) == str(location_id):
+            current_location = i.cartLocation
+            cart_list.append(i)
+
+
+
+    context = {'location_id': location_id,
+               'current_location': current_location,
+               'cart_list': cart_list}
+
+    return render(request, 'polls/batteries.html', context)
+
+def tyres(request, location_id):
+
+    current_location = ''
+    cart_array = Cart.objects.all()
+    cart_list = []
+    service_obj = Service.objects.all()
+    service_array = []
+
+
+    for i in cart_array:
+        if str(i.cartLocation.id) == str(location_id):
+            current_location = i.cartLocation
+            cart_list.append(i)
+
+
+
+    context = {'location_id': location_id,
+               'current_location': current_location,
+               'cart_list': cart_list}
+
+    return render(request, 'polls/tyres.html', context)
+
 def cart(request, location_id, cart_id):
     cart_array = Cart.objects.order_by('-cartLocation')
     cart_location = ''

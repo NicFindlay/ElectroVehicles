@@ -13,10 +13,10 @@
     <title>Electro Vehicles Seychelles</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{% static 'polls/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="../../static/polls/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{% static 'polls/css/stylish-portfolio.css' %}" rel="stylesheet">
+    <link href="../../static/polls/css/stylish-portfolio.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="../../../../../../Downloads/startbootstrap-stylish-portfolio-gh-pages%202/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -38,54 +38,23 @@
         <div class="container">
             <div class="row">
 
-                    <div class="blockery">
-    {% if service_obj.serviced %}
-        <h1>Service  <span style="color:orchid; font-size: 18px;">[Serviced]</span></h1>
-    {% endif %}
-    {% if service_obj.breakdown %}
-        <h1>Service  <span style="color:orchid; font-size: 18px;">[Breakdown]</span></h1>
-    {% endif %}
-    {% if service_obj.accident %}
-        <h1>Service  <span style="color:orchid; font-size: 18px;">[Accident]</span></h1>
-    {% endif %}
 
+                <h1>{{current_location}} Batteries</h1>
+                <p><br></p>
 
-
-
-   <br> <p class="block"><span style="color:dodgerblue; font-size: 18px;"><strong>Cart ID: </strong></span> {{service_obj.cart.cart_id}}</p>
-    <p class="block"><span style="color:dodgerblue; font-size: 18px;"><strong>Date In: </strong></span> {{service_obj.date_in}}</p>
-    <p class="block"><span style="color:dodgerblue; font-size: 18px;"><strong>Date Out: </strong> </span>{{service_obj.date_out}}</p><br>
-
-    <p class="block"><span style="color:forestgreen; font-size: 18px;"><strong>Batteries: </strong></span><br>{{service_obj.battery}}</p>
-    <p class="block"><span style="color:forestgreen; font-size: 18px;"><strong>Tyres: </strong></span><br> {{service_obj.tyres}}</p>
-    <p class="block"><span style="color:forestgreen; font-size: 18px;"><strong>Upholstery: </strong></span><br> {{service_obj.upholstery}}</p><br>
-
-
-
-    {% if service_obj.technician %}
-        <p class="block"><span style="color:dodgerblue; font-size: 18px;"><strong>Technician:</strong></span> <br>{{service_obj.technician}}</p>
-    {% endif %}
-
-    {% if service_obj.problem %}
-        <p class="block"><span style="color:dodgerblue; font-size: 18px;"><strong>Problems:</strong></span> <br>{{service_obj.problem}}</p>
-    {% endif %}
-
-    {% if service_obj.replaired_replaced %}
-        <p class="block"><span style="color:dodgerblue; font-size: 18px;"><strong>Repaired/Replaced:</strong></span> <br>{{service_obj.repaired_replaced}}</p>
-    {% endif %}
-
-    {% if service_obj.parts_ordered %}
-        <p class="block"><span style="color:red; font-size: 18px;"><strong>Parts to be Ordered:</strong></span> <br>{{service_obj.parts_ordered}}</p>
-    {% endif %}
-
-    {% if service_obj.concerns %}
-        <p class="block"><span style="color:dodgerblue; font-size: 18px;"><strong>Concerns:</strong></span> <br>{{service_obj.concerns}}</p>
-    {% endif %}
-
-    {% if service_obj.battery_percentage %}
-        <p class="block"><span style="color:dodgerblue; font-size: 18px;"><strong>Battery:</strong></span><br>{{service_obj.battery_percentage}}%</p>
-    {% endif %}
-</div>
+{#                <h4>Number of Carts: {{ cart_length }} </h4>#}
+{##}
+{#                <h4>Number of Services: {{ service_length }}</h4>#}
+{##}
+{#                <a href="/{{location_id}}/spares/">Spares Report</a>#}
+{##}
+{#                <a href="/{{location_id}}/batteries/">Batteries Report</a>#}
+{##}
+{#                <a href="/{{location_id}}/tyres/">Tyres Report</a>#}
+{##}
+{#                {% for cart in cart_list %}#}
+{##}
+{#                {% endfor %}#}
 
 
             </div>

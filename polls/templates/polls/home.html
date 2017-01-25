@@ -58,9 +58,7 @@
                     {% endif %}
                     </h1>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->
     </section>
 
     <section id="about" class="about">
@@ -69,11 +67,8 @@
                     <h1 style="text-align: center">Need Servicing: ( > 25days ago)<br><br> </h1>
 
                         {% for service in overdue_service %}
-
                                 <a href="/{{ service.cart.cartLocation.id }}/{{ service.cart.cart_id }}/{{ service.id }}/"> {{ service.cart}} - {{ service.date_in }} <br></a>
-
                         {% endfor %}
-
 
             </div>
             <!-- /.row -->
@@ -90,16 +85,11 @@
                     {% for service in service_list %}
 
                             {% if service.parts_ordered %}
-
                                 <a href="/{{ service.cart.cartLocation.id }}/{{ service.cart.cart_id }}/{{ service.id }}/"> {{ service.parts_ordered}} <br></a>
-
                             {% endif %}
-
                         {% endfor %}
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->
     </section>
 
 

@@ -42,9 +42,16 @@
                 <h1>{{current_location}} Report</h1>
                 <p><br></p>
 
-                <h3>Number of Carts: {{ cart_length }} </h3>
+                <h4>Number of Carts: {{ cart_length }} </h4>
 
-                <h3>Number of Services: {{ service_length }}</h3>
+                <h4>Number of Services: {{ service_length }}</h4>
+
+                <a style="font-size: 18px; color:red;" href="/{{location_id}}/spares/">Spares</a><br>
+
+                <a style="font-size: 18px; color:red;" href="/{{location_id}}/batteries/">Batteries</a><br>
+
+                <a style="font-size: 18px; color:red;" href="/{{location_id}}/tyres/">Tyres</a><br>
+
                 {% for cart in cart_list %}
 
                 {% endfor %}
