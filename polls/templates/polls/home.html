@@ -82,12 +82,12 @@
             <div class="row">
                     <h1 style="text-align: center">(BETA) Parts to be Ordered<br><br> </h1>
 
-                    {% for service in service_list %}
-
-                            {% if service.parts_ordered %}
-                                <a href="/{{ service.cart.cartLocation.id }}/{{ service.cart.cart_id }}/{{ service.id }}/"> {{ service.parts_ordered}} <br></a>
-                            {% endif %}
-                        {% endfor %}
+{#                    {% for service in service_list %}#}
+{##}
+{#                            {% if service.parts_ordered %}#}
+{#                                <a href="/{{ service.cart.cartLocation.id }}/{{ service.cart.cart_id }}/{{ service.id }}/"> {{ service.parts_ordered}} <br></a>#}
+{#                            {% endif %}#}
+{#                        {% endfor %}#}
             </div>
         </div>
     </section>
