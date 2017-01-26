@@ -82,7 +82,7 @@ def stats(request, location_id):
     current_location = ''
     cart_array = Cart.objects.all()
     cart_list = []
-    service_obj = Service.objects.all()
+    service_obj = Service.objects.order_by('cart')
     service_array = []
 
 
