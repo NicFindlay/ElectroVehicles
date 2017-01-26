@@ -43,13 +43,13 @@ def home(request):
     overdue_service = []
 
 
-    for service in service_list:
-        if (service.date_out.month == today.month):
-            monthly_service.append(service)
-
-    for service in monthly_service:
-        if (service.date_out < month_ago):
-            overdue_service.append(service)
+    # for service in service_list:
+    #     if (service.date_out.month == today.month):
+    #         monthly_service.append(service)
+    #
+    # for service in monthly_service:
+    #     if (service.date_out < month_ago):
+    #         overdue_service.append(service)
 
 
     context = {'location_list': location_list,
