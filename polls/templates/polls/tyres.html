@@ -42,20 +42,27 @@
                 <h1>{{current_location}} Tyres</h1>
                 <p><br></p>
 
-{#                <h4>Number of Carts: {{ cart_length }} </h4>#}
-{##}
-{#                <h4>Number of Services: {{ service_length }}</h4>#}
-{##}
-{#                <a href="/{{location_id}}/spares/">Spares Report</a>#}
-{##}
-{#                <a href="/{{location_id}}/batteries/">Batteries Report</a>#}
-{##}
-{#                <a href="/{{location_id}}/tyres/">Tyres Report</a>#}
-{##}
-{#                {% for cart in cart_list %}#}
-{##}
-{#                {% endfor %}#}
+                <h4>Tyres GOOD:</h4>
 
+                {% for i in good %}
+                    <p><s></s>{{ i }}</p>
+                    <br>
+
+                {% endfor %}
+
+                <h4>Tyres OK:</h4>
+                 {% for i in ok %}
+                    <p><s></s>{{ i }}</p>
+                    <br>
+
+                {% endfor %}
+
+                <h4>Tyres BAD:</h4>
+                {% for i in bad %}
+                    <p><s></s>{{ i }}</p>
+                    <br>
+
+                {% endfor %}
 
             </div>
             <!-- /.row -->

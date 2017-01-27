@@ -113,8 +113,9 @@ def spares(request, location_id):
     current_location = ''
     cart_array = Cart.objects.all()
     cart_list = []
-    service_obj = Service.objects.all()
-    service_array = []
+    service_obj = Service.objects.order_by('date_in')
+    today = datetime.date.today()
+    month_ago = datetime.date.today() + datetime.timedelta(-25)
 
 
     for i in cart_array:
@@ -125,7 +126,8 @@ def spares(request, location_id):
 
     context = {'location_id': location_id,
                'current_location': current_location,
-               'cart_list': cart_list}
+               'cart_list': cart_list,
+               'today' : today,}
 
     return render(request, 'polls/spares.html', context)
 
@@ -134,9 +136,25 @@ def batteries(request, location_id):
     current_location = ''
     cart_array = Cart.objects.all()
     cart_list = []
-    service_obj = Service.objects.all()
-    service_array = []
+    service_obj = Service.objects.order_by('-date_in')
+    recent_service = []
+    recent_id = []
+    ok = []
+    bad = []
+    good = []
 
+    for  i in service_obj:
+        if i.cart_id not in recent_id:
+                recent_service.append(i)
+                recent_id.append(i.cart_id)
+
+    for i in recent_service:
+        if i.battery == "Ok" or i.battery == "ok":
+            ok.append(i.cart.cart_id)
+        elif i.battery == "Good" or i.battery == "good":
+            good.append(i.cart.cart_id)
+        elif i.battery == "Bad" or i.battery == "bad":
+            bad.append(i.cart.cart_id)
 
     for i in cart_array:
         if str(i.cartLocation.id) == str(location_id):
@@ -147,7 +165,10 @@ def batteries(request, location_id):
 
     context = {'location_id': location_id,
                'current_location': current_location,
-               'cart_list': cart_list}
+               'cart_list': cart_list,
+               'ok' : ok,
+               'good': good,
+               'bad': bad}
 
     return render(request, 'polls/batteries.html', context)
 
@@ -156,8 +177,26 @@ def tyres(request, location_id):
     current_location = ''
     cart_array = Cart.objects.all()
     cart_list = []
-    service_obj = Service.objects.all()
-    service_array = []
+    service_obj = Service.objects.order_by('-date_in')
+    recent_service = []
+    recent_id = []
+    ok = []
+    bad = []
+    good = []
+
+    for i in service_obj:
+        if i.cart_id not in recent_id:
+            recent_service.append(i)
+            recent_id.append(i.cart_id)
+
+    for i in recent_service:
+
+        if i.tyres == "Ok" or i.tyres == "ok":
+            ok.append(i.cart.cart_id)
+        elif i.tyres == "Good" or i.tyres == "good":
+            good.append(i.cart.cart_id)
+        elif i.tyres == "Bad" or i.tyres == "bad":
+            bad.append(i.cart.cart_id)
 
 
     for i in cart_array:
@@ -166,10 +205,13 @@ def tyres(request, location_id):
             cart_list.append(i)
 
 
-
     context = {'location_id': location_id,
                'current_location': current_location,
-               'cart_list': cart_list}
+               'cart_list': cart_list,
+               'ok': ok,
+               'good': good,
+               'bad': bad}
+
 
     return render(request, 'polls/tyres.html', context)
 
